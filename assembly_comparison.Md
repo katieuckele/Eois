@@ -83,7 +83,7 @@ After filtering, kept 456041 out of a possible 456041 Sites
 Run Time = 3.00 seconds
 ```
 
-After filtering missing data at ```--max-missing=0.8```, thinning by 100, and setting the minor allele frequency to 0.05, we were left with 4,683 out of a possible 633,815 sites: 
+After filtering missing data at ```--max-missing=0.8```, thinning by 100, and setting the minor allele frequency to 0.05, we were left with 4,939 out of a possible 456,041 sites: 
 
 ```
 vcftools --vcf eois_variants_rawfiltered_12APRIL2020.vcf --out eois_variants_miss20_14APRIL20 --remove-filtered-all --maf 0.05 --max-missing 0.8 --thin 100 
