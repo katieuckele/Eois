@@ -1,6 +1,6 @@
-### Comparing reference and denovo-based assemblies 
+## Comparing reference and denovo-based assemblies 
 
-#### Reference-based assembly
+### Reference-based assembly
 
 After aligning to the reference genome, we called variants in a subset of 133 individuals (out of total 198) based on the counts of assembled reads for each individual: 
 
@@ -53,7 +53,7 @@ After filtering, kept 4683 out of a possible 633815 Sites
 Run Time = 13.00 seconds
 ```
 
-#### *De novo* assembly
+### *De novo* assembly
 
 After aligning to the *de novo* genome, we called variants in the same subset of 133 individuals as above, based on the counts of assembled reads for each individual (code same as above): 
 
@@ -107,7 +107,7 @@ After filtering, kept 4939 out of a possible 456041 Sites
 Run Time = 11.00 seconds
 ```
 
-#### Consensus-based assembly
+### Consensus-based assembly
 
 After aligning to the consensus genome, we called variants in the same subset of 133 individuals as above, based on the counts of assembled reads for each individual (code same as above): 
 
