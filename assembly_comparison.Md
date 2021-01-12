@@ -53,6 +53,28 @@ After filtering, kept 4683 out of a possible 633815 Sites
 Run Time = 13.00 seconds
 ```
 
+Removing the thinning parameter produces a larger number of SNPs (10,185/633,815):
+```
+$ vcftools --vcf eois_variants_rawfiltered_5Jan2021.vcf  --out eois_variants_miss20_14APRIL20 --remove-filtered-all --maf 0.05 --max-missing 0.8
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf eois_variants_rawfiltered_5Jan2021.vcf
+	--maf 0.05
+	--max-missing 0.8
+	--out eois_variants_miss20_14APRIL20
+	--remove-filtered-all
+
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+After filtering, kept 133 out of 133 Individuals
+After filtering, kept 10185 out of a possible 633815 Sites
+Run Time = 13.00 seconds
+```
+
 ### *De novo* assembly
 
 After aligning to the *de novo* genome, we called variants in the same subset of 133 individuals as above, based on the counts of assembled reads for each individual (code same as above): 
