@@ -183,7 +183,7 @@ After filtering, kept 853 out of a possible 438240 Sites
 Run Time = 9.00 seconds
 ```
 
-### 3. Reference-based assembly with bwa mem
+### 4. Reference-based assembly with bwa mem
 
 After aligning to the reference genome with ```bwa mem```, we called variants on the same subset of 133 individuals (out of total 198) based on the counts of assembled reads for each individual: 
 
