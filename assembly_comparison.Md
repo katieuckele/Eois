@@ -232,7 +232,7 @@ After filtering, kept 133 out of 133 Individuals
 After filtering, kept 5150 out of a possible 724163 Sites
 Run Time = 15.00 seconds
 ```
-### 4. Consensus-based assembly with bwa mem
+### 5. Consensus-based assembly with bwa mem
 
 After aligning to the reference genome with ```bwa mem```, we called variants on the same subset of 133 individuals (out of total 198) based on the counts of assembled reads for each individual: 
 ```
