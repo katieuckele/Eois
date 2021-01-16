@@ -232,11 +232,54 @@ After filtering, kept 133 out of 133 Individuals
 After filtering, kept 5150 out of a possible 724163 Sites
 Run Time = 15.00 seconds
 ```
+### 4. Consensus-based assembly with bwa mem
 
+After aligning to the reference genome with ```bwa mem```, we called variants on the same subset of 133 individuals (out of total 198) based on the counts of assembled reads for each individual: 
+```
+samtools mpileup -P ILLUMINA --BCF --max-depth 1000 --adjust-MQ 50 --min-BQ 20 --min-MQ 20 --skip-indels --output-tags DP,AD --fasta-ref /data/gpfs/assoc/parchmanlab/kuckele/eois/reference/consensus_1DEC20.fa aln*sorted.bam | \
+bcftools call -m --variants-only --format-fields GQ --skip-variants indels | \
+bcftools filter --set-GTs . -i 'QUAL > 19 && FMT/GQ >9' | \
+bcftools view -m 2 -M 2 -v snps --apply-filter "PASS" --output-type v --output-file eois_variants_rawfiltered_15Jan2021.vcf 
+```
+The rawfiltered vcf contained 570,923 sites: 
+```
+$ vcftools --vcf eois_variants_rawfiltered_15Jan2021.vcf 
 
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
 
+Parameters as interpreted:
+	--vcf eois_variants_rawfiltered_15Jan2021.vcf
 
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+After filtering, kept 133 out of 133 Individuals
+After filtering, kept 570923 out of a possible 570923 Sites
+Run Time = 3.00 seconds
+```
+After filtering missing data at ```--max-missing=0.8```, thinning by 100, and setting the minor allele frequency to 0.05, we were left with 943 out of a possible 570,923 sites: 
+```
+$ vcftools --vcf eois_variants_rawfiltered_15Jan2021.vcf  --out eois_variants_miss20 --remove-filtered-all --maf 0.05 --max-missing 0.8 --thin 100
 
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf eois_variants_rawfiltered_15Jan2021.vcf
+	--maf 0.05
+	--thin 100
+	--max-missing 0.8
+	--out eois_variants_miss20
+	--remove-filtered-all
+
+Warning: Expected at least 2 parts in INFO entry: ID=AC,Number=A,Type=Integer,Description="Allele count in genotypes for each ALT allele, in the same order as listed">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+Warning: Expected at least 2 parts in INFO entry: ID=DP4,Number=4,Type=Integer,Description="Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases">
+After filtering, kept 133 out of 133 Individuals
+After filtering, kept 943 out of a possible 570923 Sites
+Run Time = 11.00 seconds
+```
 
 
 
