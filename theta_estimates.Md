@@ -1,5 +1,14 @@
 ## Estimating thetas with angsd
 
+### Table of diversity estimates (see below for code)
+
+| Pop          | Pi         | Pi_low     | Pi_high    | Watterson  | Watt_low   | Watt_high  |
+|--------------|------------|------------|------------|------------|------------|------------|
+| grp1_drkblue | 0.00368015 | 0.00367607 | 0.00368423 | 0.0056467  | 0.00564272 | 0.00565068 |
+| grp2_cream   | 0.00488115 | 0.00487622 | 0.00488608 | 0.00577686 | 0.0057728  | 0.00578092 |
+| grp3_ltblue  | 0.00520844 | 0.00520399 | 0.00521289 | 0.00663696 | 0.0066339  | 0.00664001 |
+| grp4_mustard | 0.00389922 | 0.00389206 | 0.00390638 | 0.00430013 | 0.00429368 | 0.00430658 |
+
 ### Install angsd
 #### Notes from Trevor: 
 ```
@@ -54,10 +63,3 @@ thetaStat print grp2_cream.thetas.idx 2>/dev/null > grp2_cream_persite_thetas.tx
 thetaStat print grp3_ltblue.thetas.idx 2>/dev/null > grp3_ltblue_persite_thetas.txt
 thetaStat print grp4_mustard.thetas.idx 2>/dev/null > grp4_mustard_persite_thetas.txt
 ```
-
-| Pop          | Pi         | Pi_low     | Pi_high    | W          | W_low      | W_high     |
-|--------------|------------|------------|------------|------------|------------|------------|
-| grp1_drkblue | 0.00368015 | 0.00367607 | 0.00368423 | 0.0056467  | 0.00564272 | 0.00565068 |
-| grp2_cream   | 0.00488115 | 0.00487622 | 0.00488608 | 0.00577686 | 0.0057728  | 0.00578092 |
-| grp3_ltblue  | 0.00520844 | 0.00520399 | 0.00521289 | 0.00663696 | 0.0066339  | 0.00664001 |
-| grp4_mustard | 0.00389922 | 0.00389206 | 0.00390638 | 0.00430013 | 0.00429368 | 0.00430658 |
