@@ -47,8 +47,8 @@ EoisRevBayes                   ## [0] [assembly_name]: Assembly name. Used to na
                                ## [2] [raw_fastq_path]: Location of raw non-demultiplexed fastq files
                                ## [3] [barcodes_path]: Location of barcodes file
 /data/gpfs/assoc/denovo/kuckele/eois_phylo/fastq/RevBayes/*fastq.gz          ## [4] [sorted_fastq$
-denovo                         ## [5] [assembly_method]: Assembly method (denovo, reference)
-                               ## [6] [reference_sequence]: Location of reference sequence file
+reference                         ## [5] [assembly_method]: Assembly method (denovo, reference)
+/data/gpfs/assoc/denovo/kuckele/eois_genome/fasta/eois_lepidoptera_12Sep2018_zZ6nZ.fasta                               ## [6] [reference_sequence]: Location of reference sequence file
 ddrad                            ## [7] [datatype]: Datatype (see docs): rad, gbs, ddrad, etc.
                          ## [8] [restriction_overhang]: Restriction overhang (cut1,) or (cut1, cut2)
 5                              ## [9] [max_low_qual_bases]: Max low quality base calls (Q<20) in a read
@@ -74,9 +74,9 @@ p, s, l, n                        ## [27] [output_formats]: Output formats (see 
 Sbatch file (sbatch_eoisRevBayes.sh): 
 ```
 #!/usr/bin/env bash
-#SBATCH --account=cpu-s5-denovo-0
-#SBATCH --partition=cpu-core-0
-#SBATCH --cpus-per-task=64
+#SBATCH --account=cpu-s1-bionres-0
+#SBATCH --partition=cpu-s1-bionres-0
+#SBATCH --cpus-per-task=32
 #SBATCH --job-name=ipyrad
 #SBATCH --output=ipyrad_eoisRevBayes.txt
 #SBATCH --mem-per-cpu=3500M
@@ -88,6 +88,6 @@ source activate py36
 cd /data/gpfs/assoc/denovo/kuckele/eois_phylo/ipyrad/
 
 ## call ipyrad on your params file
-ipyrad -f -p params-EoisRevBayes.txt -s 1234567 -c 64
+ipyrad -f -p params-EoisRevBayes.txt -s 1234567 -c 32
 ```
 
