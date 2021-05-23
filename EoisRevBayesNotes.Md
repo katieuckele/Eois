@@ -34,6 +34,9 @@ To calculate our proportion of *Eois* sampled, I divide the number of GBS sample
 [1] 0.08011696
 ```
 
+## Is this the true number of species sampled? 
+Some species are repeated, and show up in previous phylogenies as sister species. The real number of species after accounting for repeats is 121. 
+
 ## Ipyrad Param File
 FASTQ files for this analysis are located in the following repository on Pronghorn:
 ```
