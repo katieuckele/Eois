@@ -1,5 +1,7 @@
 ## Comparing reference and denovo-based assemblies 
 
+### Note: I ended up going with approach 4. Reference-based assembly with bwa mem
+
 ### 1. Reference-based assembly
 
 After aligning to the reference genome, we called variants in a subset of 133 individuals (out of total 198) based on the counts of assembled reads for each individual: 
