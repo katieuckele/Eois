@@ -6,3 +6,4 @@
 
 ## preliminary view of structure within dark blue (baezanum)
 
+![drkblue](https://user-images.githubusercontent.com/30299787/119593463-ddda2980-bd8e-11eb-8ba4-e8a19eebf727.jpeg)
